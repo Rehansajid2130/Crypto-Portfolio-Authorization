@@ -8,7 +8,7 @@ const DashboardLayout = ({ title, children }) => {
   const { isOpen, onClose, onOpen } = useDisclosure();
 
   return (
-    <Flex>
+    <Flex backgroundColor="#F3F3F7">
       <Box
         display={{
           base: "none",

@@ -75,11 +75,11 @@ const Signup = () => {
                                                 <FormControl isInvalid={!!!(meta.error && meta.touched
                                                 )}>
                                                     <label htmlFor="name">Name</label>
-                                                    <input type="name" placeholder='Enter your name'
+                                                    <input type="name" placeholder='James'
 
                                                         {...field}
                                                         style={{
-                                                            border: "2px solid grey", borderRadius: '6px'
+                                                            border: "2px solid #EEEEF4", borderRadius: '8px'
                                                             , width: "100%", padding: '8px 10px 8px 10px'
                                                         }}
                                                     /> <FormErrorMessage>{meta.error}</FormErrorMessage>
@@ -92,10 +92,10 @@ const Signup = () => {
                                                 <FormControl isInvalid={!!!(meta.error && meta.touched
                                                 )}>
                                                     <label htmlFor="surname">Surname</label>
-                                                    <input type="text" placeholder='Enter your surname'
+                                                    <input type="text" placeholder='Auther'
                                                         {...field}
                                                         style={{
-                                                            border: "2px solid grey", borderRadius: '6px'
+                                                            border: "2px solid #EEEEF4", borderRadius: '8px'
                                                             , width: "100%", padding: '8px 10px 8px 10px'
                                                         }}
                                                     /><FormErrorMessage>{meta.error}</FormErrorMessage>
@@ -111,7 +111,7 @@ const Signup = () => {
                                             <input type="Email" placeholder='Enter your Email'
                                             {...field}
                                                 style={{
-                                                    border: "2px solid grey", borderRadius: '6px'
+                                                     border: "2px solid #EEEEF4", borderRadius: '8px'
                                                     , padding: '8px 10px 8px 10px'
                                                 }} /><FormErrorMessage>{meta.error}</FormErrorMessage>
                                         </FormControl>
@@ -125,7 +125,7 @@ const Signup = () => {
                                             <input type="Password" placeholder='Enter your Password'
                                                {...field}
                                                style={{
-                                                    border: "2px solid grey", borderRadius: '6px', padding: '8px 10px 8px 10px'
+                                                    border: "2px solid #EEEEF4", borderRadius: '8px', padding: '8px 10px 8px 10px'
                                                 }} /><FormErrorMessage>{meta.error}</FormErrorMessage>
                                         </FormControl>
                                             )}
@@ -138,19 +138,28 @@ const Signup = () => {
                                             <input type="Password" placeholder='Enter your Password'
                                             {...field}
                                             style={{
-                                                border: "2px solid grey", borderRadius: '6px', padding: '8px 10px 8px 10px'
+                                                border: "2px solid #EEEEF4", borderRadius: '8px', padding: '8px 10px 8px 10px'
                                             }} /><FormErrorMessage>{meta.error}</FormErrorMessage>
                                         </FormControl >
                                         )}
                                                 </Field>
-                                        <Checkbox>I agree with <Text color={"#5F00D9"}
-                                            as={"span"}
-                                        >Terms & Conditions</Text>.</Checkbox>
+                                        
+
+                                        <Checkbox> <Text as={"span"} fontSize={14}>
+                                             I agree with <Text color={"#5F00D9"}
+                                            as={"span"}> Terms & Conditions</Text>.
+                                            </Text>
+                                            </Checkbox>
+                                            
+
                                         <Button type='submit' isLoading={isLoading}>
                                         Create Account
                                         </Button>
-                                        <Text>Already have an account? <Link to="/LoginPage"> <Text as={"span"} color={"#5F00D9"} >
+                                        <Box display={'flex'} w={'full'} justifyContent={'center'}>
+
+                                        <Text as={"span"} color={"#797E82"}>Already have an account? <Link to="/LoginPage"> <Text as={"span"} color={"#5F00D9"}  fontWeight={500}>
                                             Login</Text> </Link></Text>
+                                        </Box>
                                     </Stack>
                                 </Stack>
                             </Form>

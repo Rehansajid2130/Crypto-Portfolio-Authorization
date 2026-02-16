@@ -2,11 +2,11 @@ import React from 'react'
 import useAuth from '../../hooks/useAuth'
 import { Navigate } from 'react-router-dom'
 
-const Signined = ({children}) => {
+const Signined = ({ children }) => {
 
-    const {tokenStr} = useAuth()
+  const { tokenStr } = useAuth()
   return (
-    <>{!tokenStr ? children : <Navigate to={"/signin"} /> }</>
+    <>{!tokenStr ? children : <Navigate to={"/"} />}</>
   )
 }
 

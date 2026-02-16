@@ -1,51 +1,50 @@
 import { createContext, useState } from "react";
 import { jwtDecode } from "jwt-decode";
-import {useCookies} from "react-cookie";
+import { useCookies } from "react-cookie";
 
 
 export const AuthContext = createContext()
-export default function AuthProvider({children}){
+export default function AuthProvider({ children }) {
 
-const [user, setUser] = useState("")
-const [tokenStr, setToken] = useState("")
+    const [user, setUser] = useState("")
+    const [cookies, setCookie, removeCookie] = useCookies();
+    const [tokenStr, setToken] = useState(cookies.jwt || "");
 
-const [cookies , setCookie , removeCookie] = useCookies();
-
-// const storeToken = () =>{
+    // const storeToken = () =>{
     // }
-    
 
-const login = (tokenStr)=>{
-    
-    if(tokenStr){
-        setToken(tokenStr)
-        const {exp} = jwtDecode(tokenStr);
-        console.log(exp);
-        if(exp){
 
-            setCookie(
-                "jwt" , tokenStr ,{
+    const login = (tokenStr) => {
+
+        if (tokenStr) {
+            setToken(tokenStr)
+            const { exp } = jwtDecode(tokenStr);
+            console.log(exp);
+            if (exp) {
+
+                setCookie(
+                    "jwt", tokenStr, {
                     path: "/",
                     maxAge: exp,
                     sameSite: true,
                 }
-            )
-            return
+                )
+                return
+            }
+            logout()
         }
-        logout()
+
     }
- 
-}
 
-const logout= ()=>{
-    setToken("")
-    setUser("")
-    removeCookie("jwt", {path : "/"})
-}
+    const logout = () => {
+        setToken("")
+        setUser("")
+        removeCookie("jwt", { path: "/" })
+    }
 
-    return(
+    return (
         <AuthContext.Provider
-            value = {
+            value={
                 {
                     user,
                     tokenStr,

@@ -38,8 +38,8 @@ const Login = () => {
 
     return (
         <Container w={"100wh"} h={"fit-content"} bgColor={"white"}>
-            <Center w={"100wh"} h={"100vh"}>
-                <Card w={"456px"} padding={10} borderRadius={16} shadow={"0px 0px 16px 2px #0000001F;"}>
+            <Center w={"100wh"} h={"100vh"} >
+                <Card w={"456px"} padding={7} borderRadius={16} shadow={"0px 0px 16px 2px #0000001F;"} gap={"25px"} display={'flex'}>
 
                     <Box><Text textStyle="h1" fontWeight={500} >Welcome to Crypto App</Text></Box>
                     <Box> <Text color={"#797E82"} fontSize={14}>Enter your credentials to access the account.</Text></Box>
@@ -58,7 +58,7 @@ const Login = () => {
                     >
                         {() => (
                             <Form>
-                                <Stack fontSize={14} spacing={5}>
+                                <Stack fontSize={14}>
 
                                     <Stack spacing={5}>
                                         <Field name="email">
@@ -69,7 +69,7 @@ const Login = () => {
                                                     <input type="Email" placeholder='Enter your Email'
                                                         {...field}
                                                         style={{
-                                                            border: "2px solid grey", borderRadius: '6px'
+                                                            border: "2px solid #EEEEF4", borderRadius: '8px'
                                                             , padding: '8px 10px 8px 10px'
                                                         }} /><FormErrorMessage>{meta.error}</FormErrorMessage>
                                                 </FormControl>
@@ -83,24 +83,27 @@ const Login = () => {
                                                     <input type="Password" placeholder='Enter your Password'
                                                         {...field}
                                                         style={{
-                                                            border: "2px solid grey", borderRadius: '6px', padding: '8px 10px 8px 10px'
+                                                            border: "2px solid #EEEEF4", borderRadius: '8px', padding: '8px 10px 8px 10px'
                                                         }} /><FormErrorMessage>{meta.error}</FormErrorMessage>
                                                 </FormControl>
                                             )}
                                         </Field>
 
-                                        <Stack display={'flex'}  flexDir={"row"} justify={"space-between"}>
-                                            <Checkbox>Remember me</Checkbox>
+                                        <Stack display={'flex'}  flexDir={"row"} justify={"space-between"} >
+                                            
+                                                <Checkbox > <Text as={"span"} fontSize={14} >Remember me</Text> </Checkbox>
+
+                            
                                             <Link to={"/ForgetPasswordPage"}>
-                                            <Text as={"span"} fontSize={16} fontWeight={400}> Forget Password</Text>
+                                            <Text as={"span"} fontSize={14} fontWeight={500} color={"#5F00D9"}> Forget Password?</Text>
                                             </Link>
                                         </Stack>
                                         <Button isLoading={isLoading} type='submit'>
-                                            <Text>Login</Text>
+                                           login
                                         </Button>
                                         <Link to={"/signup"} >
-                                        <Button type='submit' bgColor={"#EEEEF4"} color={"black"} w={'full'} variant={'outline'}>
-                                            <Text >Create New Account</Text>
+                                        <Button type='submit' bgColor={"#EEEEF4"} color={"black"} w={'full'} variant={'outline'} border={"0px"}>
+                                        Create New Account
                                         </Button>
                                         </Link>
                                        

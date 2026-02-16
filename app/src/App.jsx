@@ -12,8 +12,8 @@ import ForgetPasswordPage from "./pages/ForgetPassword/ForgetPasswordPage";
 import ForgetSuccess from "./pages/ForgetSuccess/ForgetSuccess";
 import ResetPasswordAlert from "./pages/ResetPassword/ResetPasswordAlert";
 import ResetPasswordForm from "./pages/ResetPasswordForm/ResetPasswordForm";
-import {QueryClientProvider , QueryClient} from 'react-query'
-import {ReactQueryDevtools} from "react-query/devtools"
+import { QueryClientProvider, QueryClient } from 'react-query'
+import { ReactQueryDevtools } from "react-query/devtools"
 import ProtectedRoute from "./components/Auth/ProtectedRoute";
 import Signined from "./components/Auth/Signined"
 
@@ -24,94 +24,96 @@ function App() {
       path: "/",
 
       element:
-      <ProtectedRoute>
-        <Dashboard />,
+        <ProtectedRoute>
+          <Dashboard />,
 
-      </ProtectedRoute>
+        </ProtectedRoute>
     },
     {
       path: "/transactions",
-      element: 
-      <ProtectedRoute>
+      element:
+        <ProtectedRoute>
 
-        <TransactionPage />,
-      </ProtectedRoute>
+          <TransactionPage />,
+        </ProtectedRoute>
     },
     {
       path: "/support",
-      element:<ProtectedRoute>
+      element: <ProtectedRoute>
         <Support />,
 
       </ProtectedRoute>
     },
     {
-      path : "/signup",
-      element : <Signined>
+      path: "/signup",
+      element: <Signined>
 
         <Signup />
-      </Signined> 
+      </Signined>
     },
     {
-      path : "/signin",
-      element :<Signined>
+      path: "/signin",
+      element: <Signined>
 
         <Login />
-      </Signined> 
+      </Signined>
     },
     {
-      path : "/sent-verification-mail/:email",
-      element : <Signined>
+      path: "/sent-verification-mail/:email",
+      element: <Signined>
         <EmailVerifyPage />
-        </Signined>
+      </Signined>
     },
     {
-      path : "/email-verify/:token",
-      element : <Signined>
+      path: "/email-verify/:token",
+      element: <Signined>
         <RegisterSuccess />
-        
-        </Signined>
+
+      </Signined>
     }
     ,
     {
-      path : "/ForgetPasswordPage",
-      element :<Signined>
+      path: "/ForgetPasswordPage",
+      element: <Signined>
 
         <ForgetPasswordPage />
       </Signined>
     }
     ,
     {
-      path : "/forgot-success/:email",
-      element :<Signined>
+      path: "/forgot-success/:email",
+      element: <Signined>
 
         <ForgetSuccess />
-      </Signined> 
+      </Signined>
     }
     ,
     {
-      path : "/ResetPasswordAlert",
-      element : <Signined>
-        
+      path: "/ResetPasswordAlert",
+      element: <Signined>
+
         <ResetPasswordAlert />
-        </Signined>
+      </Signined>
     }
     ,
     {
-      path : "/forgot-password-verify/:token",
-      element :<Signined>
+      path: "/forgot-password-verify/:token",
+      element: <Signined>
 
         <ResetPasswordForm />
       </Signined>
     }
   ]);
-  
+
   const queryClient = new QueryClient();
 
   return (
+
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
-      <ReactQueryDevtools initialIsOpen = {false} />
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
+
   );
 }
 

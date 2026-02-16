@@ -15,7 +15,7 @@ import { FaBars, FaUserTie } from "react-icons/fa";
 import useAuth from "../hooks/useAuth";
 const TopNav = ({ title, onOpen }) => {
 
-  const {logout} = useAuth()
+  const { logout } = useAuth()
   return (
     <Box px="4" bg="white">
       <HStack maxW="70rem" h="16" justify="space-between" mx="auto">
